@@ -45,7 +45,7 @@ public class CrawlingService {
         return Optional.empty();
     }
 
-    //only two filters; complexity = 2
+    //only two filters; This method successfully passed the tests
     private Optional<Element> filterElements(Elements elements, Element originElement) {
         for (CrawlingStrategy crawler : strategies) {
             Elements afterFiltering = crawler.filterElements(elements, originElement);
@@ -56,11 +56,14 @@ public class CrawlingService {
         return Optional.empty();
     }
 
-    //all filters;
     /**
      * PLEASE READ COMMENTS BELOW
-     * not tested properly. Might have overhead. If you want to test it, please provide test input data or extend time for this task
-     * @return
+     * This method should try all possible scenarios of different filters combination.
+     * It wasnot tested properly due to lack of time. Might have overhead in complexity.
+     * I think that system rarely need such algorithms
+     * and in most of the cases {@link #filterElements(Elements, Element)} is enough
+     * If you want perfect solution, please provide appropriate test input data or extend time for this task
+     * For provided test cases you can use simplified method {@link #filterElements(Elements, Element)}. Complexity O(1). Test passed
      */
     private Optional<Element> filterElementsRecursively(Elements elements, Element originElement, int startIndex) {
         for (int i = startIndex+1; i < strategies.size(); i++) {

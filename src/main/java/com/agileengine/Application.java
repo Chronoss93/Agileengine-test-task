@@ -5,6 +5,9 @@ import java.util.Optional;
 
 public class Application {
 
+    /**
+     * please check comments in CrawlingService
+     */
     public static void main(String[] args) {
         String targetElementId = "make-everything-ok-button";
         DiffProcessor diffProcessor = new DiffProcessor();
